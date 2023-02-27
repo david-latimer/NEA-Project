@@ -1,0 +1,17 @@
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\bin\Debug\net6.0-windows\Rendering Engine NEA Project.exe
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\bin\Debug\net6.0-windows\Rendering Engine NEA Project.deps.json
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\bin\Debug\net6.0-windows\Rendering Engine NEA Project.runtimeconfig.json
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\bin\Debug\net6.0-windows\Rendering Engine NEA Project.dll
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\bin\Debug\net6.0-windows\Rendering Engine NEA Project.pdb
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering_Engine_NEA_Project.Form1.resources
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.csproj.GenerateResource.cache
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.AssemblyInfo.cs
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.dll
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\refint\Rendering Engine NEA Project.dll
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.pdb
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\Rendering Engine NEA Project.genruntimeconfig.cache
+C:\Users\User\Desktop\C#\Rendering Engine\Rendering Engine NEA Project\obj\Debug\net6.0-windows\ref\Rendering Engine NEA Project.dll
