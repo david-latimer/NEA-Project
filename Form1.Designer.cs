@@ -30,6 +30,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkGray;
             ClientSize = new Size(960, 540);
             Name = "Form1";
             Text = "Rendering Engine";
