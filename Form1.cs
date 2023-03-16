@@ -33,9 +33,9 @@ namespace Rendering_Engine_NEA_Project
                             "#---##--------#",
                             "#---------#---#",
                             "#---------#---#",
-                            "#--c----------#",
-                            "#---------#---#",
                             "#-------------#",
+                            "#---------#---#",
+                            "#--c----------#",
                             "###############"
                            };
 
@@ -140,14 +140,14 @@ namespace Rendering_Engine_NEA_Project
             float step = 0.2f;
             float[] heights = new float[960];
             Color[] colours = new Color[960];
-            float max_dist = 150f;
+            float max_dist = 125f;
 
             for (int ray = 0; ray < 960; ray++)
             {
                 Vector2 ray_pos = cameraPosition;
                 float length = 0f;
 
-                while (true)
+                while (true) 
                 {
                     float FOV = 45f;
                     float angle = ((float)Math.PI / 180f) * ((FOV / 2) - (FOV / 2) * ((float)(ray) / 480f));
@@ -159,7 +159,7 @@ namespace Rendering_Engine_NEA_Project
                         // this adjusts for that
                         float adjusted_dist = (float)Math.Cos(angle) * length;
                         heights[ray] = adjusted_dist;
-                        int intesity = (int)(255f - (255f * (length / max_dist)));
+                        int intesity = (int)Math.Max(255f - (255f * (length / max_dist)), 0);
                         colours[ray] = Color.FromArgb(intesity, intesity, intesity);
                         break;
                     }
@@ -171,12 +171,22 @@ namespace Rendering_Engine_NEA_Project
                 }
             }
 
+            int screen_width = 960;
+            int screen_height = 540;
+            int wallheight = 10; // pretty much just a guess
+            float horizontal_view = 45 * 2 * (float)Math.PI / 360f; // in radians
+
             // draw heights centered
             for (int i = 0; i < 960; i++)
             {
                 // pixels is the amount of pixels long the sliver should be
-                // int pixels = (int)((heights[i] / 200) * -540 + 540);
-                int pixels = (int)(540 - (540 * (heights[i]) / max_dist));
+                // int pixels = (int)(540 - (540 * heights[i] / max_dist));
+
+                // not a clue how these two lines work
+                // god bless stack overflow, god bless @Jongs
+                float vertical_view = (horizontal_view / screen_width) * screen_height;
+                int pixels = (int)Math.Min(wallheight / (2 * Math.Tan(0.5f * vertical_view) * heights[i]) * screen_height, screen_height);
+
                 int offset = (540 - pixels) / 2;
                 Brush aBrush = new SolidBrush(colours[i]);
                 for (int p = offset; p < pixels + offset; p++)
@@ -187,6 +197,79 @@ namespace Rendering_Engine_NEA_Project
             }
 
             e.Graphics.DrawString(Convert.ToString(move_offset), fnt, new SolidBrush(Color.Red), 25f, 25f);
+
+            /*
+       
+            // temp draw debug view
+
+            for (int y = 0; y < 540; y++)
+            {
+                for (int x = 0; x < 960; x++)
+                {
+                    e.Graphics.FillRectangle(new SolidBrush(Color.Black), x, y, 1, 1);
+                }
+            }
+
+            // centre = (480, 270) ish
+            // top left = (380, 170) ish / (0, 100)
+            // bottom right = (580, 370) ish / (100, 0)
+
+            for (int y = 99; y >= 0; y--)
+            {
+                for (int x = 0; x < 150; x++)
+                {
+                    Vector2 room_coord = new Vector2(x, y);
+                    Vector2 screen_coord = new Vector2(380 + x, 270 - y);
+
+                    Color pixelColour;
+
+                    char c = FindGridChar(room_coord, room);
+                    if (c == '#')
+                    {
+                        pixelColour = Color.White;
+                    }
+                    else if (c == 'c')
+                    {
+                        pixelColour = Color.Green;
+                    }
+                    else
+                    {
+                        pixelColour = Color.Black;
+                    }
+
+                    e.Graphics.FillRectangle(new SolidBrush(pixelColour), screen_coord.X, screen_coord.Y, 1, 1);
+                }
+            }
+
+            List<Vector2> points = new List<Vector2>();
+
+            for (int ray = 0; ray < 960; ray++)
+            {
+                Vector2 ray_pos = cameraPosition;
+
+                while (true)
+                {
+                    float FOV = 45f;
+                    float angle = ((float)Math.PI / 180f) * ((FOV / 2) - (FOV / 2) * ((float)(ray) / 480f));
+
+                    if (FindGridChar(ray_pos, room) == '#')
+                    {
+                        break;
+                    }
+
+                    float new_x = ray_pos.X + (float)Math.Cos(angle) * step;
+                    float new_y = ray_pos.Y + (float)Math.Sin(angle) * step;
+                    ray_pos = new Vector2(new_x, new_y);
+                    points.Add(ray_pos * new Vector2(1, -1) + new Vector2(378, 270));
+                }
+            }
+
+            foreach (Vector2 point in points)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(50, 255, 0, 0)), point.X, point.Y, 1, 1);
+            } 
+            
+            */
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
